@@ -105,7 +105,7 @@ public class Jugador {
 
 	@Override
 	public String toString() {
-		return "Jugador [nombre=" + nombre + ", nivel=" + nivel + ", tesoros=" + tesoros + "]";
+		return "Jugador [nombre=" + nombre + ", nivel=" + nivel + ", tesoros=" + tesoros.toString() + "]";
 	}
 	
 }

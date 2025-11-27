@@ -211,7 +211,7 @@ public class Juego {
 			
 			Jugador actual = jugadores.get(turno);
 			System.out.println("======================================");
-			System.out.println("Turno del jugador: " + actual);
+			System.out.println("Turno del jugador: " + actual.toString());
 			System.out.println("======================================");
 
 			turno(actual);
@@ -244,13 +244,19 @@ public class Juego {
 		}
 		
 		Random random = new Random();
-		int puedeRobar = random.nextInt(2);
+		int puedeRobar = random.nextInt(3);
+		System.out.println("The result of You can steal: " + puedeRobar);
+
 		if (puedeRobar == 0) {
 			// roba
 			System.out.println("Intentemos robar una maravilla por aqui");
 			// define quien robar
 			int indiceVictima = random.nextInt(this.jugadores.size());
 			Jugador victima = this.jugadores.get(indiceVictima);
+			while(victima == jugador) {
+				indiceVictima = random.nextInt(this.jugadores.size());
+				victima = this.jugadores.get(indiceVictima);
+			}
 			System.out.println(victima.getNombre() + ", da me algo y con prisa !");
 			Tesoro tesoro = jugador.robarTesoro(victima);
 			System.out.println("Gracias por este " + tesoro.getNombre());

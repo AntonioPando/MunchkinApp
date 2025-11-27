@@ -41,7 +41,7 @@ public class Tesoro extends Carta {
 	
 	@Override
 	public String toString() {
-		return "Tesoro [tipo=" + tipo + ", bonus=" + bonus + "]";
+		return this.getNombre() + "[tipo=" + tipo + ", bonus=" + bonus + "]";
 	}
 
 }

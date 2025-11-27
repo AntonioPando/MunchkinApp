@@ -54,6 +54,7 @@ public class Monstruo extends Carta implements IEfectoCarta {
 
 		if (jugador.getFuerza() >= this.nivel) {
 			System.out.println("¡Victoria!");
+			// TODO sugestion: sysout the treasures and niveles ganados
 			int nivel = jugador.getNivel();
 			nivel += this.recompensaNiveles;
 			jugador.setNivel(nivel);
