@@ -81,7 +81,4 @@ public class Monstruo extends Carta implements IEfectoCarta {
 		return "Monstruo [nivel=" + nivel + ", recompensaNiveles=" + recompensaNiveles + 
 				", recompensaTesoro=" + recompensaTesoro + "]";
 	}
-	
-	
-
 }

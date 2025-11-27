@@ -13,19 +13,19 @@ public class Juego {
 	protected Mazo mazoTesoro;
 	protected int turno;
 	private boolean terminado;
-	
+
 	Scanner scan = new Scanner(System.in);
 
-	public Juego (ArrayList<Jugador> jugadores) {
+	public Juego(ArrayList<Jugador> jugadores) {
 		this.jugadores = jugadores;
 		this.mazoPuerta = new Mazo();
 		this.mazoTesoro = new Mazo();
 		this.turno = 0;
 		this.terminado = false;
-		
+
 		inicializarCartas(mazoPuerta, mazoTesoro);
 	}
-	
+
 	public Juego(ArrayList<Jugador> jugadores, Mazo mazoPuerta, Mazo mazoTesoro, int turno, boolean terminado) {
 		this.jugadores = jugadores;
 		this.mazoPuerta = mazoPuerta;
@@ -147,46 +147,46 @@ public class Juego {
 		Maldicion decadencia = new Maldicion("Decadencia", "QUITANIVELES", "Pierdes 1 niveles", 1);
 		Maldicion saqueo = new Maldicion("Saqueo", "QUITATESORO", "Pierdes 1 tesoros", 1);
 		Maldicion retroceso = new Maldicion("Retroceso", "QUITANIVELES", "Retrocedes 1 niveles", 1);
-		/*Maldicion perdidaTotal = new Maldicion("Perdida Total", "QUITATESORO", "Pierdes 6 tesoros", 6);
-		Maldicion desgracia = new Maldicion("Desgracia", "QUITANIVELES", "Pierdes 2 niveles", 2);
-		Maldicion ratero = new Maldicion("Ratero", "QUITATESORO", "Te roban 1 tesoro", 1);
-		Maldicion incompetencia = new Maldicion("Incompetencia", "QUITANIVELES", "Pierdes 1 nivel", 1);
-		Maldicion bancarrota = new Maldicion("Bancarrota", "QUITATESORO", "Pierdes 3 tesoros", 3);
-		Maldicion regresion = new Maldicion("Regresión", "QUITANIVELES", "Pierdes 3 niveles", 3);
-		Maldicion desposesion = new Maldicion("Desposesión", "QUITATESORO", "Pierdes 2 tesoros", 2);
-		Maldicion humillacion = new Maldicion("Humillación", "QUITANIVELES", "Pierdes 4 niveles", 4);
-		Maldicion expolio = new Maldicion("Expolio", "QUITATESORO", "Pierdes 5 tesoros", 5);
-		Maldicion pesadilla = new Maldicion("Pesadilla", "QUITANIVELES", "Retrocedes al nivel 1", 10);
-		Maldicion ruina = new Maldicion("Ruina", "QUITATESORO", "Pierdes todos tus tesoros", 10);*/
-		
+		/*
+		 * Maldicion perdidaTotal = new Maldicion("Perdida Total", "QUITATESORO",
+		 * "Pierdes 6 tesoros", 6); Maldicion desgracia = new Maldicion("Desgracia",
+		 * "QUITANIVELES", "Pierdes 2 niveles", 2); Maldicion ratero = new
+		 * Maldicion("Ratero", "QUITATESORO", "Te roban 1 tesoro", 1); Maldicion
+		 * incompetencia = new Maldicion("Incompetencia", "QUITANIVELES",
+		 * "Pierdes 1 nivel", 1); Maldicion bancarrota = new Maldicion("Bancarrota",
+		 * "QUITATESORO", "Pierdes 3 tesoros", 3); Maldicion regresion = new
+		 * Maldicion("Regresión", "QUITANIVELES", "Pierdes 3 niveles", 3); Maldicion
+		 * desposesion = new Maldicion("Desposesión", "QUITATESORO",
+		 * "Pierdes 2 tesoros", 2); Maldicion humillacion = new Maldicion("Humillación",
+		 * "QUITANIVELES", "Pierdes 4 niveles", 4); Maldicion expolio = new
+		 * Maldicion("Expolio", "QUITATESORO", "Pierdes 5 tesoros", 5); Maldicion
+		 * pesadilla = new Maldicion("Pesadilla", "QUITANIVELES",
+		 * "Retrocedes al nivel 1", 10); Maldicion ruina = new Maldicion("Ruina",
+		 * "QUITATESORO", "Pierdes todos tus tesoros", 10);
+		 */
+
 		// Añadir tesoros al mazoTesoros
-		mazoTesoros.cartas.addAll(Arrays.asList(
-		    martillo, espadaLarga, hachaDeGuerra, daga, mangualDeLaMuerte,
-		    arcoLargo, lanzaFiluda, espadaFlamigera,
-		    armaduraDeCuero, cotaDeMalla, armaduraCompleta, escudoDeMadera,
-		    armaduraMagica, yelmoReforzado,
-		    botasVeloces, anilloDeFuerza, capaDeLevitacion, amuletoProtector,
-		    guantesDelLadron, cinturonDelCampeon, pocionCurativa
-		));
+		mazoTesoros.cartas.addAll(Arrays.asList(martillo, espadaLarga, hachaDeGuerra, daga, mangualDeLaMuerte,
+				arcoLargo, lanzaFiluda, espadaFlamigera, armaduraDeCuero, cotaDeMalla, armaduraCompleta, escudoDeMadera,
+				armaduraMagica, yelmoReforzado, botasVeloces, anilloDeFuerza, capaDeLevitacion, amuletoProtector,
+				guantesDelLadron, cinturonDelCampeon, pocionCurativa));
 
 		// Añadir monstruos al mazoPuertas
-		mazoPuertas.cartas.addAll(Arrays.asList(
-		    rataGigante, goblinLadron, esqueletoArmado, orcoGuerrero, arañaVenenosa,
-		    zombiHambriento, trasgoPeleon, loboSalvaje, vampiroNocturno,
-		    trollDeMontaña, dragonJoven, licantropoFeroz, golemDePiedra,
-		    espectroMaldito, hidraMulticabeza, demonioInfernal, minotauroSalvaje,
-		    basiliscoLetal, necromante, dragonAnciano, kraken
-		));
+		mazoPuertas.cartas.addAll(Arrays.asList(rataGigante, goblinLadron, esqueletoArmado, orcoGuerrero, arañaVenenosa,
+				zombiHambriento, trasgoPeleon, loboSalvaje, vampiroNocturno, trollDeMontaña, dragonJoven,
+				licantropoFeroz, golemDePiedra, espectroMaldito, hidraMulticabeza, demonioInfernal, minotauroSalvaje,
+				basiliscoLetal, necromante, dragonAnciano, kraken));
 
 		// Añadir maldiciones al mazoPuertas
-		mazoPuertas.cartas.addAll(Arrays.asList(
-		    malaDeSuerte, maldicionDelLadron, amnesia, pobreza, robo, caos,
-		    malaFortuna, decadencia, saqueo, retroceso /*,perdidaTotal, desgracia,
-		    ratero, incompetencia, bancarrota, regresion, desposesion,
-		    humillacion, expolio, pesadilla, ruina*/
-		));
-		
-		//Barajamos las barajas
+		mazoPuertas.cartas.addAll(
+				Arrays.asList(malaDeSuerte, maldicionDelLadron, amnesia, pobreza, robo, caos, malaFortuna, decadencia,
+						saqueo, retroceso /*
+											 * ,perdidaTotal, desgracia, ratero, incompetencia, bancarrota, regresion,
+											 * desposesion, humillacion, expolio, pesadilla, ruina
+											 */
+				));
+
+		// Barajamos las barajas
 		Collections.shuffle(mazoPuertas.cartas);
 		Collections.shuffle(mazoTesoros.cartas);
 
@@ -203,19 +203,18 @@ public class Juego {
 	public void jugar() {
 
 		while (!terminado) {
-			
 
 			if (turno == jugadores.size()) {
 				turno = 0;
 			}
-			
+
 			Jugador actual = jugadores.get(turno);
 			System.out.println("======================================");
 			System.out.println("Turno del jugador: " + actual.toString());
 			System.out.println("======================================");
 
 			turno(actual);
-			
+
 			if (actual.getNivel() >= 5) {
 				System.out.println("El jugador " + actual.getNombre() + " HA GANADO!!!");
 				terminado = true;
@@ -230,10 +229,7 @@ public class Juego {
 	}
 
 	public void turno(Jugador jugador) {
-		Carta carta = robarPuerta();
-		public void turno(Jugador jugador) {
-	
-		if (jugador.nivel >= 0){	
+		if (jugador.nivel >= 0) {
 			Carta carta = robarPuerta();
 			if (carta instanceof Monstruo) {
 				((Monstruo) carta).ejecutar(jugador, this);
@@ -247,10 +243,7 @@ public class Juego {
 		} else {
 			System.out.println("No juegas turno");
 		}
-	}
 
-		
-		
 		Random random = new Random();
 		int puedeRobar = random.nextInt(3);
 		System.out.println("The result of You can steal: " + puedeRobar);
@@ -261,7 +254,7 @@ public class Juego {
 			// define quien robar
 			int indiceVictima = random.nextInt(this.jugadores.size());
 			Jugador victima = this.jugadores.get(indiceVictima);
-			while(victima == jugador) {
+			while (victima == jugador) {
 				indiceVictima = random.nextInt(this.jugadores.size());
 				victima = this.jugadores.get(indiceVictima);
 			}

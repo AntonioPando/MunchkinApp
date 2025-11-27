@@ -6,7 +6,7 @@ import java.util.Random;
 public class Jugador {
 
 	private String nombre;
-	private int nivel;
+	protected int nivel;
 	private ArrayList<Tesoro> tesoros;
 	
 	public Jugador(String nombre) {
