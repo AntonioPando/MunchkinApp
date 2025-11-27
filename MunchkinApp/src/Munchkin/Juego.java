@@ -86,7 +86,7 @@ public class Juego {
 	public void inicializarCartas(Mazo mazoPuertas, Mazo mazoTesoros) {
 
 		// Armas
-		Tesoro martillo = new Tesoro("Martillo", TipoTesoro.ARMA, 4);
+		Tesoro martillo = new Tesoro("Martillos", TipoTesoro.ARMA, 4);
 		Tesoro espadaLarga = new Tesoro("Espada Larga", TipoTesoro.ARMA, 5);
 		Tesoro hachaDeGuerra = new Tesoro("Hacha de Guerra", TipoTesoro.ARMA, 6);
 		Tesoro daga = new Tesoro("Daga", TipoTesoro.ARMA, 2);
@@ -106,7 +106,7 @@ public class Juego {
 		// Accesorios
 		Tesoro botasVeloces = new Tesoro("Botas Veloces", TipoTesoro.ACCESORIO, 3);
 		Tesoro anilloDeFuerza = new Tesoro("Anillo de Fuerza", TipoTesoro.ACCESORIO, 4);
-		Tesoro capaDeLevitacion = new Tesoro("Capa de Levitación", TipoTesoro.ACCESORIO, 5);
+		Tesoro capaDeLevitacion = new Tesoro("Capas de Levitación", TipoTesoro.ACCESORIO, 5);
 		Tesoro amuletoProtector = new Tesoro("Amuleto Protector", TipoTesoro.ACCESORIO, 3);
 		Tesoro guantesDelLadron = new Tesoro("Guantes del Ladrón", TipoTesoro.ACCESORIO, 2);
 		Tesoro cinturonDelCampeon = new Tesoro("Cinturón del Campeón", TipoTesoro.ACCESORIO, 6);
@@ -240,7 +240,7 @@ public class Juego {
 		} else if (carta instanceof Tesoro) {
 			((Tesoro) carta).aplicarEfecto(jugador, this);
 		} else {
-			System.out.println("Carta no reconocida");
+			turno++;
 		}
 		
 		Random random = new Random();
