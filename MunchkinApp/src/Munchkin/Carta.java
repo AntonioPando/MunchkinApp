@@ -26,7 +26,7 @@ public abstract class Carta {
 	// Constructor por defecto
 	
 	public Carta() {
-		this.nombre = " ";
+		this.nombre = "";
 	}
 	
 	

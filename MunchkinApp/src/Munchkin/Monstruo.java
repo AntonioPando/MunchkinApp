@@ -8,7 +8,6 @@ public class Monstruo extends Carta implements IEfectoCarta {
 	protected int recompensaTesoro;
 
 	// Constructor por parámetros
-
 	public Monstruo(String nombre, int nivel, int recompensaNiveles, int recompensaTesoro) {
 		super(nombre);
 		this.nivel = nivel;
@@ -25,7 +24,6 @@ public class Monstruo extends Carta implements IEfectoCarta {
 	}
 
 	// Getter & Setter
-
 	public int getNivel() {
 		return nivel;
 	}
@@ -51,7 +49,6 @@ public class Monstruo extends Carta implements IEfectoCarta {
 	}
 
 	// Métodos
-
 	public void ejecutar(Jugador jugador, Juego juego) {
 		System.out.println(jugador.getNombre() + " se enfrenta al monstruo " + nombre);
 
@@ -62,9 +59,9 @@ public class Monstruo extends Carta implements IEfectoCarta {
 			jugador.setNivel(nivel);
 
 			for (int i = 0; i < this.recompensaTesoro; i++) {
-				Carta t = juego.robarTesoro();
-				if (t instanceof Tesoro)
-					jugador.recibirTesoro((Tesoro) t);
+				Carta carta = juego.robarTesoro();
+				if (carta instanceof Tesoro)
+					jugador.recibirTesoro((Tesoro) carta);
 			}
 		} else {
 			System.out.println("¡Has perdido! Bajas de nivel");
@@ -80,8 +77,8 @@ public class Monstruo extends Carta implements IEfectoCarta {
 
 	@Override
 	public String toString() {
-		return "Monstruo [nivel=" + nivel + ", recompensaNiveles=" + recompensaNiveles + ", recompensaTesoro="
-				+ recompensaTesoro + "]";
+		return "Monstruo [nivel=" + nivel + ", recompensaNiveles=" + recompensaNiveles + 
+				", recompensaTesoro=" + recompensaTesoro + "]";
 	}
 	
 	

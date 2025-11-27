@@ -20,9 +20,10 @@ public class Juego {
 		this.jugadores = jugadores;
 		this.mazoPuerta = new Mazo();
 		this.mazoTesoro = new Mazo();
-		inicializarCartas(mazoPuerta, mazoTesoro);
 		this.turno = 0;
 		this.terminado = false;
+		
+		inicializarCartas(mazoPuerta, mazoTesoro);
 	}
 	
 	public Juego(ArrayList<Jugador> jugadores, Mazo mazoPuerta, Mazo mazoTesoro, int turno, boolean terminado) {
@@ -83,11 +84,7 @@ public class Juego {
 	}
 
 	public void inicializarCartas(Mazo mazoPuertas, Mazo mazoTesoros) {
-		// TODO Agrega monstruos, maldiciones y tesoros. Mezcla mazos
-		
-//		ArrayList<Carta> mazoPuertas = new ArrayList<>();
-//		ArrayList<Carta> mazoTesoros = new ArrayList<>();
-		
+
 		// Armas
 		Tesoro martillo = new Tesoro("Martillo", TipoTesoro.ARMA, 4);
 		Tesoro espadaLarga = new Tesoro("Espada Larga", TipoTesoro.ARMA, 5);
@@ -208,8 +205,10 @@ public class Juego {
 		while (!terminado) {
 			
 
-			if (turno == 4)
+			if (turno == jugadores.size()) {
 				turno = 0;
+			}
+			
 			Jugador actual = jugadores.get(turno);
 			System.out.println("======================================");
 			System.out.println("Turno del jugador: " + actual);
@@ -222,8 +221,6 @@ public class Juego {
 				terminado = true;
 			} else if (this.mazoPuerta.estaVacio() || this.mazoTesoro.estaVacio()) {
 				System.out.println("La partida ha acabado en empate!");
-				// crear arraylist con niveles de los jugadores
-				// devolver arraylist.max()
 				terminado = true;
 			} else {
 				scan.nextLine();
@@ -233,26 +230,15 @@ public class Juego {
 	}
 
 	public void turno(Jugador jugador) {
-		// TODO Abrir puerta y simular robo entre jugadores.
 
-		/*
-		 * aplicar efectos dependiendo de tipo de carta usando instanceof
-		 *
-		 */
+		Carta carta = robarPuerta();
 
-		Carta c = robarPuerta();
-
-		if (c instanceof Monstruo) {
-			// TODO combate
-			((Monstruo) c).ejecutar(jugador, this);
-		} else if (c instanceof Maldicion) {
-			// TODO aplica efecto maldicion
-			((Maldicion) c).aplicarEfecto(jugador, this);
-
-		} else if (c instanceof Tesoro) {
-			// TODO aplica efecto tesoro
-			((Tesoro) c).aplicarEfecto(jugador, this);
-
+		if (carta instanceof Monstruo) {
+			((Monstruo) carta).ejecutar(jugador, this);
+		} else if (carta instanceof Maldicion) {
+			((Maldicion) carta).aplicarEfecto(jugador, this);
+		} else if (carta instanceof Tesoro) {
+			((Tesoro) carta).aplicarEfecto(jugador, this);
 		} else {
 			System.out.println("Carta no reconocida");
 		}
