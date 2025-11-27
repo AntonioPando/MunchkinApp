@@ -8,7 +8,6 @@ public class Monstruo extends Carta implements IEfectoCarta {
 	protected int recompensaTesoro;
 
 	// Constructor por parámetros
-
 	public Monstruo(String nombre, int nivel, int recompensaNiveles, int recompensaTesoro) {
 		super(nombre);
 		this.nivel = nivel;
@@ -25,7 +24,6 @@ public class Monstruo extends Carta implements IEfectoCarta {
 	}
 
 	// Getter & Setter
-
 	public int getNivel() {
 		return nivel;
 	}
@@ -51,7 +49,6 @@ public class Monstruo extends Carta implements IEfectoCarta {
 	}
 
 	// Métodos
-
 	public void ejecutar(Jugador jugador, Juego juego) {
 		System.out.println(jugador.getNombre() + " se enfrenta al monstruo " + nombre);
 

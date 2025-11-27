@@ -88,7 +88,6 @@ public class Jugador {
 		return this.nivel >= 5;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Jugador [nombre=" + nombre + ", nivel=" + nivel + ", tesoros=" + tesoros + "]";
