@@ -230,18 +230,26 @@ public class Juego {
 	}
 
 	public void turno(Jugador jugador) {
-
 		Carta carta = robarPuerta();
-
-		if (carta instanceof Monstruo) {
-			((Monstruo) carta).ejecutar(jugador, this);
-		} else if (carta instanceof Maldicion) {
-			((Maldicion) carta).aplicarEfecto(jugador, this);
-		} else if (carta instanceof Tesoro) {
-			((Tesoro) carta).aplicarEfecto(jugador, this);
+		public void turno(Jugador jugador) {
+	
+		if (jugador.nivel >= 0){	
+			Carta carta = robarPuerta();
+			if (carta instanceof Monstruo) {
+				((Monstruo) carta).ejecutar(jugador, this);
+			} else if (carta instanceof Maldicion) {
+				((Maldicion) carta).aplicarEfecto(jugador, this);
+			} else if (carta instanceof Tesoro) {
+				((Tesoro) carta).aplicarEfecto(jugador, this);
+			} else {
+				System.out.println("Carta no reconocida");
+			}
 		} else {
-			turno++;
+			System.out.println("No juegas turno");
 		}
+	}
+
+		
 		
 		Random random = new Random();
 		int puedeRobar = random.nextInt(3);
