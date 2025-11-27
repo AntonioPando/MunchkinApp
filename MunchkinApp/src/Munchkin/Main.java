@@ -22,8 +22,7 @@ public class Main {
 			String nombre = scan.nextLine();
 			Jugador jugador = new Jugador(nombre);
 			jugadores.add(jugador);
-		}
-	
+		}	
 		
 		Juego juego = new Juego(jugadores);
 		juego.jugar();
