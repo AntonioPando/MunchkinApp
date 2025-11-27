@@ -84,6 +84,20 @@ public class Jugador {
 		}
 	}
 	
+	public Tesoro robarTesoro(Jugador victima) {
+		if (victima.tesoros.size() > 0) {
+			Random random = new Random();
+			int randomIndice = random.nextInt(victima.tesoros.size());
+			Tesoro tesoro = victima.tesoros.get(randomIndice);
+			victima.tesoros.remove(randomIndice);
+			return tesoro;
+		} else {
+			System.out.println("No tengo nada mas que un pañuelo !");
+			Tesoro tesoro = new Tesoro("Pañuelo", TipoTesoro.INUTIL, 0);
+			return tesoro;
+		}
+	}
+	
 	public boolean haGanado() {
 		return this.nivel >= 5;
 	}

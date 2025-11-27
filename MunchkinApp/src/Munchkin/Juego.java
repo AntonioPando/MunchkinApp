@@ -3,6 +3,7 @@ package Munchkin;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Juego {
@@ -254,6 +255,24 @@ public class Juego {
 
 		} else {
 			System.out.println("Carta no reconocida");
+		}
+		
+		Random random = new Random();
+		int puedeRobar = random.nextInt(2);
+		if (puedeRobar == 0) {
+			// roba
+			System.out.println("Intentemos robar una maravilla por aqui");
+			// define quien robar
+			int indiceVictima = random.nextInt(this.jugadores.size());
+			Jugador victima = this.jugadores.get(indiceVictima);
+			System.out.println(victima.getNombre() + ", da me algo y con prisa !");
+			Tesoro tesoro = jugador.robarTesoro(victima);
+			System.out.println("Gracias por este " + tesoro.getNombre());
+			if (tesoro.tipo != TipoTesoro.INUTIL) {
+				jugador.recibirTesoro(tesoro);
+			}
+			
+			// 
 		}
 
 	}
