@@ -74,13 +74,16 @@ public class Jugador {
 		this.tesoros.add(tesoro);
 	}
 	
-	public void removerTesoroAleatorio() {
+	public boolean removerTesoroAleatorio() {
 		if (this.tesoros.size() > 0) {
 			Random random = new Random();
 			int randomIndice = random.nextInt(this.tesoros.size());
+			System.out.println("Pues tendras que seguir sin ese maravilloso " + this.tesoros.get(randomIndice).getNombre());
 			this.tesoros.remove(randomIndice);
+			return true;
 		} else {
 			System.out.println("Ya no tengo ni un tesoro !");
+			return false;
 		}
 	}
 	

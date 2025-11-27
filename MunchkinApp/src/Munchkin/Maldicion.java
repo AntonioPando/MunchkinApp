@@ -49,12 +49,17 @@ public class Maldicion extends Carta implements IEfectoCarta {
 			System.out.println("¡MALDICION!");
 			System.out.println("¡Has perdido "+ potencia + " niveles!");
 		} else if (this.tipo == TipoMaldicion.QUITATESOROS) {
-			for (int i = 0; i < this.potencia; i++) {
-				jugador.removerTesoroAleatorio();
-			}
-			
 			System.out.println("¡MALDICION!");
-			System.out.println("Has perdido el tesoro " + potencia + " tesoros");
+			System.out.println("Vas a perder " + potencia + " tesoros");
+			boolean intentoRobar = true;
+			int quedanPorRobar = this.potencia;
+			int tesorosRobados = 0;
+			while (tesorosRobados < quedanPorRobar && intentoRobar == true) {
+				intentoRobar = jugador.removerTesoroAleatorio();
+				if (intentoRobar) {
+					tesorosRobados += 1;
+				}
+			}
 		}
 	}
 
