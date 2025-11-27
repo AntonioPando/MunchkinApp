@@ -207,7 +207,7 @@ public class Juego {
 		while (!terminado) {
 			
 
-			if (turno == 4)
+			if (turno == jugadores.size())
 				turno = 0;
 			Jugador actual = jugadores.get(turno);
 			System.out.println("======================================");
@@ -221,8 +221,6 @@ public class Juego {
 				terminado = true;
 			} else if (this.mazoPuerta.estaVacio() || this.mazoTesoro.estaVacio()) {
 				System.out.println("La partida ha acabado en empate!");
-				// crear arraylist con niveles de los jugadores
-				// devolver arraylist.max()
 				terminado = true;
 			} else {
 				scan.nextLine();
@@ -232,30 +230,29 @@ public class Juego {
 	}
 
 	public void turno(Jugador jugador) {
-		// TODO Abrir puerta y simular robo entre jugadores.
+		
+		if (jugador.nivel >= 0){
+		
+			Carta carta = robarPuerta();
 
-		/*
-		 * aplicar efectos dependiendo de tipo de carta usando instanceof
-		 *
-		 */
+			if (carta instanceof Monstruo) {
+			
+				((Monstruo) carta).ejecutar(jugador, this);
+			} else if (carta instanceof Maldicion) {
+			
+				((Maldicion) carta).aplicarEfecto(jugador, this);
 
-		Carta c = robarPuerta();
+			} else if (carta instanceof Tesoro) {
+			
+				((Tesoro) carta).aplicarEfecto(jugador, this);
 
-		if (c instanceof Monstruo) {
-			// TODO combate
-			((Monstruo) c).ejecutar(jugador, this);
-		} else if (c instanceof Maldicion) {
-			// TODO aplica efecto maldicion
-			((Maldicion) c).aplicarEfecto(jugador, this);
-
-		} else if (c instanceof Tesoro) {
-			// TODO aplica efecto tesoro
-			((Tesoro) c).aplicarEfecto(jugador, this);
-
+			} else {
+				System.out.println("Carta no reconocida");
+			}
+		
 		} else {
-			System.out.println("Carta no reconocida");
+			turno++;
 		}
-
 	}
 
 }
