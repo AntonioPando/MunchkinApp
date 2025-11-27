@@ -98,7 +98,7 @@ public class Juego {
 		Tesoro espadaFlamigera = new Tesoro("Espada Flamígera", TipoTesoro.ARMA, 8);
 
 		// Armaduras
-		Tesoro armaduraDeCuero = new Tesoro("Armaduras de Cuero", TipoTesoro.ARMADURA, 3);
+		Tesoro armaduraDeCuero = new Tesoro("Armadura de Cuero", TipoTesoro.ARMADURA, 3);
 		Tesoro cotaDeMalla = new Tesoro("Cota de Malla", TipoTesoro.ARMADURA, 5);
 		Tesoro armaduraCompleta = new Tesoro("Armadura Completa", TipoTesoro.ARMADURA, 6);
 		Tesoro escudoDeMadera = new Tesoro("Escudo de Madera", TipoTesoro.ARMADURA, 2);
