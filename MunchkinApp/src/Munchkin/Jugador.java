@@ -8,8 +8,6 @@ public class Jugador {
 	private String nombre;
 	private int nivel;
 	private ArrayList<Tesoro> tesoros;
-	private Juego juego = new Juego();
-	
 	
 	public Jugador(String nombre) {
 		this.nombre = nombre;
