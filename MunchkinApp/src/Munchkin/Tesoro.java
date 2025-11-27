@@ -3,7 +3,6 @@ package Munchkin;
 public class Tesoro extends Carta {
 
 	// Atributos
-
 	protected TipoTesoro tipo;
 	protected int bonus;
 
