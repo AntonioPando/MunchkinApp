@@ -13,7 +13,7 @@ public class Main {
 		System.out.println("# Bienvenido! Estas en el mejor Munchkin nunca desarrollado #");
 		System.out.println("#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#·#");
 
-		System.out.println("\"Cuantos jugadores se van a atrever?\"");
+		System.out.println("\n\"Cuantos jugadores se van a atrever?\"");
 		int numeroJugadores = scan.nextInt();
 		scan.nextLine();
 		
