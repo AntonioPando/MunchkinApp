@@ -108,7 +108,7 @@ public class Juego {
 		// Accesorios
 		Tesoro botasVeloces = new Tesoro("Botas Veloces", TipoTesoro.ACCESORIO, 3);
 		Tesoro anilloDeFuerza = new Tesoro("Anillo de Fuerza", TipoTesoro.ACCESORIO, 4);
-		Tesoro capaDeLevitacion = new Tesoro("Capa de Levitación", TipoTesoro.ACCESORIO, 5);
+		Tesoro capaDeLevitacion = new Tesoro("Capas de Levitación", TipoTesoro.ACCESORIO, 5);
 		Tesoro amuletoProtector = new Tesoro("Amuleto Protector", TipoTesoro.ACCESORIO, 3);
 		Tesoro guantesDelLadron = new Tesoro("Guantes del Ladrón", TipoTesoro.ACCESORIO, 2);
 		Tesoro cinturonDelCampeon = new Tesoro("Cinturón del Campeón", TipoTesoro.ACCESORIO, 6);
