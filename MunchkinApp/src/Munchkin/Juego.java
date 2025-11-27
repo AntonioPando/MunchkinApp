@@ -271,8 +271,7 @@ public class Juego {
 			if (tesoro.tipo != TipoTesoro.INUTIL) {
 				jugador.recibirTesoro(tesoro);
 			}
-			
-			// 
+
 		}
 
 	}
