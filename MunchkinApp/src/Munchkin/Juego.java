@@ -3,6 +3,7 @@ package Munchkin;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Juego {
@@ -19,9 +20,10 @@ public class Juego {
 		this.jugadores = jugadores;
 		this.mazoPuerta = new Mazo();
 		this.mazoTesoro = new Mazo();
-		inicializarCartas(mazoPuerta, mazoTesoro);
 		this.turno = 0;
 		this.terminado = false;
+		
+		inicializarCartas(mazoPuerta, mazoTesoro);
 	}
 	
 	public Juego(ArrayList<Jugador> jugadores, Mazo mazoPuerta, Mazo mazoTesoro, int turno, boolean terminado) {
@@ -82,11 +84,7 @@ public class Juego {
 	}
 
 	public void inicializarCartas(Mazo mazoPuertas, Mazo mazoTesoros) {
-		// TODO Agrega monstruos, maldiciones y tesoros. Mezcla mazos
-		
-//		ArrayList<Carta> mazoPuertas = new ArrayList<>();
-//		ArrayList<Carta> mazoTesoros = new ArrayList<>();
-		
+
 		// Armas
 		Tesoro martillo = new Tesoro("Martillos", TipoTesoro.ARMA, 4);
 		Tesoro espadaLarga = new Tesoro("Espada Larga", TipoTesoro.ARMA, 5);
@@ -207,8 +205,10 @@ public class Juego {
 		while (!terminado) {
 			
 
-			if (turno == jugadores.size())
+			if (turno == jugadores.size()) {
 				turno = 0;
+			}
+			
 			Jugador actual = jugadores.get(turno);
 			System.out.println("======================================");
 			System.out.println("Turno del jugador: " + actual);
@@ -230,29 +230,36 @@ public class Juego {
 	}
 
 	public void turno(Jugador jugador) {
-		
-		if (jugador.nivel >= 0){
-		
-			Carta carta = robarPuerta();
 
-			if (carta instanceof Monstruo) {
-			
-				((Monstruo) carta).ejecutar(jugador, this);
-			} else if (carta instanceof Maldicion) {
-			
-				((Maldicion) carta).aplicarEfecto(jugador, this);
+		Carta carta = robarPuerta();
 
-			} else if (carta instanceof Tesoro) {
-			
-				((Tesoro) carta).aplicarEfecto(jugador, this);
-
-			} else {
-				System.out.println("Carta no reconocida");
-			}
-		
+		if (carta instanceof Monstruo) {
+			((Monstruo) carta).ejecutar(jugador, this);
+		} else if (carta instanceof Maldicion) {
+			((Maldicion) carta).aplicarEfecto(jugador, this);
+		} else if (carta instanceof Tesoro) {
+			((Tesoro) carta).aplicarEfecto(jugador, this);
 		} else {
 			turno++;
 		}
+		
+		Random random = new Random();
+		int puedeRobar = random.nextInt(2);
+		if (puedeRobar == 0) {
+			// roba
+			System.out.println("Intentemos robar una maravilla por aqui");
+			// define quien robar
+			int indiceVictima = random.nextInt(this.jugadores.size());
+			Jugador victima = this.jugadores.get(indiceVictima);
+			System.out.println(victima.getNombre() + ", da me algo y con prisa !");
+			Tesoro tesoro = jugador.robarTesoro(victima);
+			System.out.println("Gracias por este " + tesoro.getNombre());
+			if (tesoro.tipo != TipoTesoro.INUTIL) {
+				jugador.recibirTesoro(tesoro);
+			}
+
+		}
+
 	}
 
 }

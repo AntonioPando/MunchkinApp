@@ -3,20 +3,18 @@ package Munchkin;
 public class Maldicion extends Carta implements IEfectoCarta {
 
 	
-	// tipo de maldicion
+	// Tipo de maldición
 	enum TipoMaldicion {
 		QUITANIVELES,
 		QUITATESOROS
 	}
 	
 	// Atributos
-	
 	protected TipoMaldicion tipo;
 	protected String descripcion;
 	protected int potencia;
 	
 	// Getter & Setter
-	
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -26,7 +24,6 @@ public class Maldicion extends Carta implements IEfectoCarta {
 	}
 	
 	// Constructor 
-	
 	public Maldicion(String nombre, String tipo, String descripcion, int potencia) {
 		super(nombre);
 		this.tipo = tipo == "QUITANIVELES" ? TipoMaldicion.QUITANIVELES: TipoMaldicion.QUITATESOROS;
@@ -35,10 +32,8 @@ public class Maldicion extends Carta implements IEfectoCarta {
 	}
 
 	// Métodos
-	
 	@Override
 	public void aplicarEfecto(Jugador jugador, Juego juego) {
-		// TODO
 		ejecutar(jugador, juego);
 	}
 
@@ -49,12 +44,17 @@ public class Maldicion extends Carta implements IEfectoCarta {
 			System.out.println("¡MALDICION!");
 			System.out.println("¡Has perdido "+ potencia + " niveles!");
 		} else if (this.tipo == TipoMaldicion.QUITATESOROS) {
-			for (int i = 0; i < this.potencia; i++) {
-				jugador.removerTesoroAleatorio();
-			}
-			
 			System.out.println("¡MALDICION!");
-			System.out.println("Has perdido el tesoro " + potencia + " tesoros");
+			System.out.println("Vas a perder " + potencia + " tesoros");
+			boolean intentoRobar = true;
+			int quedanPorRobar = this.potencia;
+			int tesorosRobados = 0;
+			while (tesorosRobados < quedanPorRobar && intentoRobar == true) {
+				intentoRobar = jugador.removerTesoroAleatorio();
+				if (intentoRobar) {
+					tesorosRobados += 1;
+				}
+			}
 		}
 	}
 

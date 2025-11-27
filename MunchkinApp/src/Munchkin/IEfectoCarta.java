@@ -1,7 +1,7 @@
 package Munchkin;
 
 public interface IEfectoCarta {
-	
-	public void ejecutar(Jugador Jugador, Juego Juego);
+	//TODO quitar el parametro Juego.
+	public void ejecutar(Jugador Jugador, Juego juego);
 
 }

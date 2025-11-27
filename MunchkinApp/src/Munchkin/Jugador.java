@@ -8,8 +8,6 @@ public class Jugador {
 	private String nombre;
 	private int nivel;
 	private ArrayList<Tesoro> tesoros;
-	private Juego juego = new Juego();
-	
 	
 	public Jugador(String nombre) {
 		this.nombre = nombre;
@@ -74,20 +72,36 @@ public class Jugador {
 		this.tesoros.add(tesoro);
 	}
 	
-	public void removerTesoroAleatorio() {
+	public boolean removerTesoroAleatorio() {
 		if (this.tesoros.size() > 0) {
 			Random random = new Random();
 			int randomIndice = random.nextInt(this.tesoros.size());
+			System.out.println("Pues tendras que seguir sin ese maravilloso " + this.tesoros.get(randomIndice).getNombre());
 			this.tesoros.remove(randomIndice);
+			return true;
 		} else {
 			System.out.println("Ya no tengo ni un tesoro !");
+			return false;
+		}
+	}
+	
+	public Tesoro robarTesoro(Jugador victima) {
+		if (victima.tesoros.size() > 0) {
+			Random random = new Random();
+			int randomIndice = random.nextInt(victima.tesoros.size());
+			Tesoro tesoro = victima.tesoros.get(randomIndice);
+			victima.tesoros.remove(randomIndice);
+			return tesoro;
+		} else {
+			System.out.println("No tengo nada mas que un pañuelo !");
+			Tesoro tesoro = new Tesoro("Pañuelo", TipoTesoro.INUTIL, 0);
+			return tesoro;
 		}
 	}
 	
 	public boolean haGanado() {
 		return this.nivel >= 5;
 	}
-
 
 	@Override
 	public String toString() {
