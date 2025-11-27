@@ -62,9 +62,9 @@ public class Monstruo extends Carta implements IEfectoCarta {
 			jugador.setNivel(nivel);
 
 			for (int i = 0; i < this.recompensaTesoro; i++) {
-				Carta t = juego.robarTesoro();
-				if (t instanceof Tesoro)
-					jugador.recibirTesoro((Tesoro) t);
+				Carta carta = juego.robarTesoro();
+				if (carta instanceof Tesoro)
+					jugador.recibirTesoro((Tesoro) carta);
 			}
 		} else {
 			System.out.println("¡Has perdido! Bajas de nivel");
@@ -80,8 +80,8 @@ public class Monstruo extends Carta implements IEfectoCarta {
 
 	@Override
 	public String toString() {
-		return "Monstruo [nivel=" + nivel + ", recompensaNiveles=" + recompensaNiveles + ", recompensaTesoro="
-				+ recompensaTesoro + "]";
+		return "Monstruo [nivel=" + nivel + ", recompensaNiveles=" + recompensaNiveles + 
+				", recompensaTesoro=" + recompensaTesoro + "]";
 	}
 	
 	
